@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Artigo
+from meu_blog.blog.models import Artigo
 
 # Register your models here.
 admin.site.register(Artigo)

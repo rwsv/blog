@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db import models
+# from django.contrib.sites.models import Site
 
 
 class Artigo(models.Model):
@@ -13,8 +14,9 @@ class Artigo(models.Model):
         blank=True
     )
 
-
-class Site(models.Model):
-
     def get_absolute_url(self):
         return '/artigo/%d/' % self.id
+
+
+class Site(models.Model):
+    pass

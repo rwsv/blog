@@ -6,7 +6,7 @@
           title="Ultimos Artigos do Blog do Ramon" 
           href="/rss/ultimos/" />
           
-      <title>Meu primeiro Blog!<title/> 
+      <title>Meu primeiro Blog!</title> 
       <style type="text/css">
         body {
           font-family: Verdana, sans-serif;
@@ -38,7 +38,7 @@
       {% for artigo in object_list %}
         <div class="center">
           <a href="
-             {% url meu_blog.blog.views.artigo artigo_id=artigo.id %}">
+              {% url 'meu_blog.blog.views.artigo' artigo_id=artigo.id %}">
              <h2>{{ artigo.titulo }}</h2>
           </a>
           Publicado há {{ artigo.publicacao }}<br/>

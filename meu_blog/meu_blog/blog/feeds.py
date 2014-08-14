@@ -9,5 +9,5 @@ class UltimosArtigos(Feed):
     def items(self):
         return Artigo.objects.all()
 
-'''    def item_link(self, artigo):
-        return '/artigo/%d/' % artigo.id '''
+    def item_link(self, artigo):
+        return '/artigo/%d/' % artigo.id
