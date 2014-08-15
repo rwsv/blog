@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 from django.views.generic.dates import ArchiveIndexView
 
 from django.contrib import admin
@@ -19,4 +20,9 @@ urlpatterns = patterns(
 
     (r'^rss/ultimos/$', UltimosArtigos()),
     (r'^artigo/(?P<artigo_id>\d+)/$', 'meu_blog.blog.views.artigo'),
+
+    (r'^media/(.*)$', 'django.views.static.serve',
+                      {'document_root': settings.MEDIA_ROOT}),
+    (r'^contato/$', 'views.contato'),
+    (r'^comments/', include('django.contrib.comments.urls')),
 )

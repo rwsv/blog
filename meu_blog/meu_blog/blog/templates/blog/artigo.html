@@ -1,3 +1,16 @@
+{% extends "base.html" %}
+
+  {% block titulo %}
+    {{ artigo.titulo }} - {{ block.super }}
+  {% endblock %}
+
+  {% block h1 %}
+    {{ artigo.titulo }}
+  {% endblock %}
+
+  {% block conteudo %}
+    {{ artigo.conteudo }}
+  {% endblock %}
 <html>
   <body>
     Blog do Ramon

@@ -8,39 +8,13 @@
           title="Ultimos artigos do Ramon"
           href="/rss/ultimos/" 
     />
+   <link rel="stylesheet" 
+         type="text/css" 
+         href="{{ MEDIA_URL }}layout.css"/>
 
-    <style type="text/css">
-      body {
-        font-family: arial;
-        background-color: green;
-        color: white;
-      }
-
-      h1 {
-        margin-bottom: 10px;
-      }
-
-      h2 {
-        margin: 0;
-        background-color: #eee;
-        padding: 5px;
-        font-size: 1.2em;
-      }
-
-      .artigo {
-        border: 1px solid black;
-        background-color: white;
-        color: black;
-      }
-
-      .conteudo {
-          padding: 10px;
-      }
-
-    </style>
   </head>
   <body>
-    <h1>{% block h1 %}Blog do Alatazan{% endblock %}</h1>
+    <h1>{% block h1 %}Blog do Ramon{% endblock %}</h1>
     {% block conteudo %}{% endblock %}
     {% include "rodape.html" %}
   </body>

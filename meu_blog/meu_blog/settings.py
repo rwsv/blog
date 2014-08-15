@@ -43,6 +43,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.syndication',
     'django.contrib.sites',
+    'django.contrib.flatpages',
+    'django.contrib.comments',
     'meu_blog.blog',
 )
 
@@ -53,6 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'meu_blog.urls'
@@ -90,3 +93,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SITE_ID = 1
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+ADMIN_MEDIA_PREFIX = '/admin_media/'
