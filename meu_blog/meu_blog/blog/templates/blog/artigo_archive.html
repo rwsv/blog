@@ -6,7 +6,7 @@
 
     {% for artigo in latest %}
       <div class="artigo">
-        <a href="{% url 'meu_blog.blog.views.artigo' artigo_id=artigo.id %}">
+        <a href="{{ artigo.get_absolute_url }}">
           <h2>{{ artigo.titulo }}</h2>
         </a>
 

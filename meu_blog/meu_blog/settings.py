@@ -44,8 +44,11 @@ INSTALLED_APPS = (
     'django.contrib.syndication',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'django.contrib.comments',
+    'django_comments',
     'meu_blog.blog',
+    'galeria',
+    'mordomo',
+    'contas',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,3 +102,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 ADMIN_MEDIA_PREFIX = '/admin_media/'
+
+EMAIL_HOST = 'pop3.live.com'
+EMAIL_HOST_USER = 'ramones_rock2@hotmail.com'
+EMAIL_HOST_PASSWORD = 'fritz1'
+EMAIL_SUBJECT_PREFIX = '[Blog do Ramon]'
+
+EMAIL_PORT = 995
+EMAIL_USE_SSL = True

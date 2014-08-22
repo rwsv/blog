@@ -1,0 +1,12 @@
+<form method="post">
+    <table>
+    {% csrf_token %}
+    {{ form }}
+      <tr>
+        <th>&nbsp;</th>
+        <td>
+          <input type="submit" value="Enviar"/>
+        </td>
+      </tr>
+  </table>
+</form>

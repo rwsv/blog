@@ -1,21 +1,21 @@
 {% extends "base.html" %}
+{% load comments %}
 
-  {% block titulo %}
+{% block titulo %}
     {{ artigo.titulo }} - {{ block.super }}
-  {% endblock %}
+{% endblock %}
 
-  {% block h1 %}
+{% block h1 %}
     {{ artigo.titulo }}
-  {% endblock %}
+{% endblock %}
 
-  {% block conteudo %}
+{% block conteudo %}
     {{ artigo.conteudo }}
-  {% endblock %}
-<html>
-  <body>
-    Blog do Ramon
-   <h1>{{ artigo.titulo }}</h1>
-   {{ artigo.conteudo }}
-  </body>
-</html>
 
+    <div class="comentarios">
+     <h3>Comentarios</h3>
+              
+        <h3>Envie um comentario</h3>
+        {% render_comment_form for artigo %}
+    </div>
+{% endblock %}

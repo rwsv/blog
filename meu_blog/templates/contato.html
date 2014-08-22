@@ -17,7 +17,8 @@
 
     Informe seus dados abaixo:
     <form method="post">
-      <table>
+        <table>
+        {% csrf_token %}
         {{ form }}
           <tr>
             <th>&nbsp;</th>

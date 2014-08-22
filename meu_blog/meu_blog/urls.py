@@ -19,10 +19,12 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
 
     (r'^rss/ultimos/$', UltimosArtigos()),
-    (r'^artigo/(?P<artigo_id>\d+)/$', 'meu_blog.blog.views.artigo'),
+    (r'^artigo/(?P<slug>[\w_-]+)/$', 'meu_blog.blog.views.artigo'),
 
     (r'^media/(.*)$', 'django.views.static.serve',
                       {'document_root': settings.MEDIA_ROOT}),
     (r'^contato/$', 'views.contato'),
-    (r'^comments/', include('django.contrib.comments.urls')),
+    (r'^comments/', include('django_comments.urls')),
+    (r'^galeria/', include('galeria.urls')),
+    (r'^contas/', include('contas.urls')),
 )

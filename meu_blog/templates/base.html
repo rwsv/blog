@@ -15,6 +15,9 @@
   </head>
   <body>
     <h1>{% block h1 %}Blog do Ramon{% endblock %}</h1>
+    <a href="{% url "galeria.views.albuns" %}">
+      Galeria de imagens
+    </a>
     {% block conteudo %}{% endblock %}
     {% include "rodape.html" %}
   </body>

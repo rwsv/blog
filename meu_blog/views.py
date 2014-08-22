@@ -13,10 +13,10 @@ class FormContato(forms.Form):
         titulo = 'Mensagem enviada pelo site'
         destino = 'ramonw@poli.ufrj.br'
         texto = """
-        Nome: %(nome)s
-        E-mail: %(email)s
-        Mensagem:
-        %(mensagem)s
+            Nome: %(nome)s
+            E-mail: %(email)s
+            Mensagem:
+            %(mensagem)s
         """ % self.cleaned_data
         send_mail(
                 subject=titulo,
