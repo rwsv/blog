@@ -41,3 +41,12 @@ h2 {
  margin-top: 10px;
  padding: 10px;
  }
+
+.mensagem {
+    margin: 5px;
+    padding: 5px;
+    background: yellow;
+    border: 3px solid red;
+    font-weight: bold;
+    color: red;
+}

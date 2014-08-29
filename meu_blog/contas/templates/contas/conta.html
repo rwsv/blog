@@ -3,6 +3,9 @@
     {% block titulo %}{{ conta }} - {{ block.super }}{% endblock %}
     {% block h1 %}{{ conta }}{% endblock %}
     {% block conteudo %}
+    <a href="editar/">{% trans "Editar" %}</a>
+    <a href="excluir/">{% trans "Excluir" %}</a>
+    
       <ul>
          <li>{% trans "Valor" %}: {{ conta.valor|floatformat:2 }}</li>
          <li>
@@ -35,7 +38,6 @@
       {% if conta.pagamentos.count %}
         <h2>{% trans "Pagamentos" %}</h2>
         <table>
-          {% csrf_token %}
           <tr>
             <th>{% trans "Data" %}</th>
             <th>{% trans "Valor" %}</th>
@@ -52,8 +54,8 @@
         <hr/>
         <h2>{% trans "Novo pagamento" %}</h2>
         <form action="{{ conta.get_absolute_url }}pagar/" method="post">
+          {% csrf_token %}
           <table>
-            {% csrf_token %}
             {{ form_pagamento }}
           </table>
           <input type="submit" value="{% trans "Salvar pagamento" %}"/>

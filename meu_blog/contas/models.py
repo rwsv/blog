@@ -2,6 +2,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -25,6 +26,7 @@ class Historico(models.Model):
         ordering = ('descricao',)
 
     descricao = models.CharField(max_length=50)
+    usuario = models.ForeignKey(User)
     objects = HistoricoManager()
 
     def valor_total(self):
@@ -55,6 +57,7 @@ class Pessoa(models.Model):
 
     nome = models.CharField(max_length=50)
     telefone = models.CharField(max_length=25, blank=True)
+    usuario = models.ForeignKey(User)
     objects = PessoaManager()
 
     def valor_total(self):
@@ -84,8 +87,12 @@ CONTA_STATUS_CHOICES = (
 class Conta(models.Model):
     class Meta:
         ordering = ('-data_vencimento', 'valor')
+        permissions = (
+                ('ver_todos_os_usuarios', 'Ver todos os usuarios'),
+                )
 
     pessoa = models.ForeignKey('Pessoa')
+    usuario = models.ForeignKey(User)
     historico = models.ForeignKey('Historico')
     data_vencimento = models.DateField()
     data_pagamento = models.DateField(null=True, blank=True)

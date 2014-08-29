@@ -1,3 +1,4 @@
+{% load i18n %}
 <html>
   <head>
     <title>
@@ -15,9 +16,37 @@
   </head>
   <body>
     <h1>{% block h1 %}Blog do Ramon{% endblock %}</h1>
-    <a href="{% url "galeria.views.albuns" %}">
-      Galeria de imagens
-    </a>
+    {% for msg in messages %}
+      <div class="mensagem">{{ msg }}</div>
+    {% endfor %}
+    <ul>
+      <li>
+        <a href="{% url "galeria.views.albuns" %}">
+          Galeria de imagens
+        </a>
+      </li>
+      <li>
+        <a href="{% url "views.contato" %}">
+          Contato
+        </a>
+      </li>
+      <li>
+        <a href="{% url "contas" %}">
+          Contas
+        </a>
+      </li>
+      
+      {% if user.is_authenticated %}
+        <li><a href="{% url "sair" %}">{% trans "Sair" %}</a></li>
+        <li>
+          <a href="{% url "mudar_senha" %}">{% trans "Mudar senha" %}</a>
+        </li>        
+      {% else %}
+        <li><a href="{% url "entrar" %}">{% trans "Entrar" %}</a></li>
+        <li><a href="{% url "registrar" %}">{% trans "Registre-se" %}</a></li>
+      {% endif %}
+    </ul>
+    
     {% block conteudo %}{% endblock %}
     {% include "rodape.html" %}
   </body>
